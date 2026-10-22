@@ -1,0 +1,9 @@
+<resources>
+    <!-- Window theme only; all real styling happens in Compose -->
+    <style name="Theme.ChronoLapse" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window_bg</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/window_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

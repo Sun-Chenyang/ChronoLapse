@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">ChronoLapse</string>
+
+    <!-- 相机 -->
+    <string name="cam_flash">闪光灯</string>
+    <string name="cam_grid">网格</string>
+    <string name="cam_watermark">水印</string>
+    <string name="cam_more">更多</string>
+    <string name="cam_flip">翻转相机</string>
+    <string name="cam_params">拍摄参数</string>
+    <string name="cam_zoom">变焦</string>
+    <string name="cam_ev">曝光</string>
+    <string name="mode_photo">延时照片</string>
+    <string name="mode_video">延时视频</string>
+    <string name="rec_pill">REC %s</string>
+    <string name="rec_waiting">定时 · %s 开始</string>
+    <string name="rec_next_frame">下一帧 %s</string>
+    <string name="fmt_sec_short">%s秒</string>
+    <string name="rec_frames">已拍 %d 帧</string>
+    <string name="rec_est">成品约 %s</string>
+    <string name="rec_bg_hint">正在后台录制 · 可锁屏省电</string>
+    <string name="error_missing_permission">缺少相机权限</string>
+
+    <!-- 参数面板 -->
+    <string name="sheet_interval">拍摄间隔</string>
+    <string name="sheet_interval_custom">点击设置任意时长</string>
+    <string name="interval_hour">时</string>
+    <string name="interval_minute">分</string>
+    <string name="interval_second">秒</string>
+    <string name="sheet_fps">播放帧率</string>
+    <string name="sheet_size">画面尺寸</string>
+    <string name="sheet_watermark">时间水印</string>
+    <string name="sheet_schedule">定时录制</string>
+    <string name="sheet_off">关闭</string>
+    <string name="sheet_power_hint">间隔超过 10 秒自动使用省电模式</string>
+
+    <!-- 定时 -->
+    <string name="schedule_title">定时录制</string>
+    <string name="schedule_enable">到点自动开始</string>
+    <string name="schedule_save">保存</string>
+    <string name="schedule_cancel">取消</string>
+    <string name="schedule_set">定时录制已设置</string>
+    <string name="schedule_cleared">定时已取消</string>
+
+    <!-- 作品库 -->
+    <string name="gallery_back">相机</string>
+    <string name="gallery_title">作品库</string>
+    <string name="filter_all">全部</string>
+    <string name="filter_photo">照片</string>
+    <string name="filter_video">视频</string>
+    <string name="gallery_empty">还没有作品，去拍第一段延时吧</string>
+    <string name="badge_photo">照片</string>
+    <string name="badge_video">视频</string>
+    <string name="g_frames">%d 张</string>
+    <string name="g_menu_delete">删除</string>
+    <string name="select_cancel">退出选择</string>
+    <string name="select_count">已选 %d 项</string>
+    <string name="select_all">全选</string>
+    <string name="select_delete_confirm">删除选中的 %d 项？项目将连同全部照片删除。此操作不可恢复。</string>
+
+    <!-- 查看器 -->
+    <string name="viewer_play">播放延时</string>
+    <string name="viewer_pause">暂停</string>
+    <string name="viewer_subtitle_photos">照片 · %d 张</string>
+    <string name="viewer_frames">%1$d / %2$d</string>
+    <string name="viewer_fps_est">%1$d fps · 成品约 %2$s</string>
+    <string name="viewer_export">合成视频</string>
+    <string name="viewer_exporting">正在合成视频…</string>
+    <string name="viewer_export_done">视频已保存到 Movies/ChronoLapse</string>
+    <string name="viewer_export_fail">合成失败：%s</string>
+    <string name="viewer_share">分享</string>
+    <string name="viewer_delete">删除</string>
+    <string name="viewer_delete_project">删除「%2$s」的全部 %1$d 张照片？此操作不可恢复。</string>
+    <string name="viewer_delete_video">删除该视频？此操作不可恢复。</string>
+    <string name="viewer_deleted">已删除</string>
+    <string name="viewer_delete_failed">删除失败</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="set_camera_section">相机</string>
+    <string name="set_camera">选择相机</string>
+    <string name="set_cam_back">后置</string>
+    <string name="set_cam_front">前置</string>
+    <string name="set_mute_shutter">静音快门声</string>
+    <string name="set_mute_shutter_hint">需要勿扰权限；每次拍摄后自动恢复音量</string>
+    <string name="set_camera_hint">变焦、对焦与曝光直接在取景界面调整：双指缩放、点击对焦、AE 芯片调曝光。</string>
+    <string name="set_auto_section">自动化</string>
+    <string name="set_schedule">定时录制</string>
+    <string name="set_autostop">自动停止</string>
+    <string name="set_infinite">无限</string>
+    <string name="set_minutes_fmt">%d 分钟</string>
+    <string name="set_hours_fmt">%d 小时</string>
+    <string name="set_low_battery">电量过低自动停止</string>
+    <string name="set_low_storage">存储不足自动停止</string>
+    <string name="set_initial_delay">启动延迟</string>
+    <string name="set_sec_fmt">%d 秒</string>
+    <string name="set_ms_fmt">%d 毫秒</string>
+    <string name="set_advanced">高级</string>
+    <string name="set_cam_init_delay">相机启动延迟</string>
+    <string name="set_trigger_delay">快门触发延迟</string>
+    <string name="set_jpeg_quality">JPEG 质量</string>
+    <string name="set_video_bitrate">视频码率</string>
+    <string name="set_bitrate_auto">自动</string>
+    <string name="set_mbps_fmt">%d Mbps</string>
+    <string name="set_remote_section">远程控制</string>
+    <string name="set_rest">REST API</string>
+    <string name="set_rest_hint">局域网 HTTP 远程控制服务</string>
+    <string name="set_port">HTTP 服务器端口</string>
+    <string name="set_connection">连接信息</string>
+    <string name="set_about_section">关于</string>
+    <string name="set_version">版本</string>
+    <string name="set_github">项目主页</string>
+    <string name="set_license">开源许可</string>
+    <string name="set_license_text">ChronoLapse 是基于 GPL-3.0 发布的自由软件，衍生自 Andreas Rohner 的 Spartan TimeLapse Recorder 与 woheller69 的 TimeLapseCam。延时拍摄、时间水印、REST API 与硬件编码合成均移植自上述项目。</string>
+
+    <!-- 通知 -->
+    <string name="notif_preparing">正在准备录制</string>
+    <string name="notif_recording">正在录制</string>
+    <string name="notif_waiting">定时 · %s 开始</string>
+    <string name="notif_restapi">REST API 运行中</string>
+    <string name="recording_error">录制已停止：%s</string>
+</resources>

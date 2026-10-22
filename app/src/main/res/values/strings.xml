@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">ChronoLapse</string>
+
+    <!-- camera -->
+    <string name="cam_flash">Flash</string>
+    <string name="cam_grid">Grid</string>
+    <string name="cam_watermark">Watermark</string>
+    <string name="cam_more">More</string>
+    <string name="cam_flip">Flip camera</string>
+    <string name="cam_params">Capture settings</string>
+    <string name="cam_zoom">Zoom</string>
+    <string name="cam_ev">Exposure</string>
+    <string name="mode_photo">Photo Lapse</string>
+    <string name="mode_video">Video Lapse</string>
+    <string name="rec_pill">REC %s</string>
+    <string name="rec_waiting">Scheduled · starts %s</string>
+    <string name="rec_next_frame">Next frame %s</string>
+    <string name="fmt_sec_short">%ss</string>
+    <string name="rec_frames">%d frames</string>
+    <string name="rec_est">≈ %s clip</string>
+    <string name="rec_bg_hint">Capturing in the background · screen can be locked</string>
+    <string name="error_missing_permission">Missing camera permission</string>
+
+    <!-- capture sheet -->
+    <string name="sheet_interval">Interval</string>
+    <string name="sheet_interval_custom">tap to set any duration</string>
+    <string name="interval_hour">hour</string>
+    <string name="interval_minute">min</string>
+    <string name="interval_second">sec</string>
+    <string name="sheet_fps">Playback FPS</string>
+    <string name="sheet_size">Frame size</string>
+    <string name="sheet_watermark">Time watermark</string>
+    <string name="sheet_schedule">Scheduled recording</string>
+    <string name="sheet_off">Off</string>
+    <string name="sheet_power_hint">Power saving mode is used automatically above 10 s</string>
+
+    <!-- schedule -->
+    <string name="schedule_title">Scheduled recording</string>
+    <string name="schedule_enable">Start automatically</string>
+    <string name="schedule_save">Save</string>
+    <string name="schedule_cancel">Cancel</string>
+    <string name="schedule_set">Recording scheduled</string>
+    <string name="schedule_cleared">Schedule cleared</string>
+
+    <!-- library -->
+    <string name="gallery_back">Camera</string>
+    <string name="gallery_title">Library</string>
+    <string name="filter_all">All</string>
+    <string name="filter_photo">Photos</string>
+    <string name="filter_video">Videos</string>
+    <string name="gallery_empty">Nothing here yet — capture your first time lapse</string>
+    <string name="badge_photo">Photos</string>
+    <string name="badge_video">Video</string>
+    <string name="g_frames">%d photos</string>
+    <string name="g_menu_delete">Delete</string>
+    <string name="select_cancel">Exit selection</string>
+    <string name="select_count">%d selected</string>
+    <string name="select_all">Select all</string>
+    <string name="select_delete_confirm">Delete the %d selected items? Projects lose all their photos. This cannot be undone.</string>
+
+    <!-- viewer -->
+    <string name="viewer_play">Play</string>
+    <string name="viewer_pause">Pause</string>
+    <string name="viewer_subtitle_photos">Photos · %d shots</string>
+    <string name="viewer_frames">%d / %d</string>
+    <string name="viewer_fps_est">%d fps · ≈ %s</string>
+    <string name="viewer_export">Export video</string>
+    <string name="viewer_exporting">Assembling video…</string>
+    <string name="viewer_export_done">Video saved to Movies/ChronoLapse</string>
+    <string name="viewer_export_fail">Export failed: %s</string>
+    <string name="viewer_share">Share</string>
+    <string name="viewer_delete">Delete</string>
+    <string name="viewer_delete_project">Delete all %d photos of "%s"? This cannot be undone.</string>
+    <string name="viewer_delete_video">Delete this video? This cannot be undone.</string>
+    <string name="viewer_deleted">Deleted</string>
+    <string name="viewer_delete_failed">Delete failed</string>
+
+    <!-- settings -->
+    <string name="settings_title">Settings</string>
+    <string name="set_camera_section">Camera</string>
+    <string name="set_camera">Camera</string>
+    <string name="set_cam_back">Back</string>
+    <string name="set_cam_front">Front</string>
+    <string name="set_mute_shutter">Mute shutter sound</string>
+    <string name="set_mute_shutter_hint">Needs notification policy access; volumes are restored after each shot</string>
+    <string name="set_camera_hint">Zoom, focus and exposure are adjusted directly on the viewfinder (pinch, tap, AE chip).</string>
+    <string name="set_auto_section">Automation</string>
+    <string name="set_schedule">Scheduled recording</string>
+    <string name="set_autostop">Stop after</string>
+    <string name="set_infinite">Unlimited</string>
+    <string name="set_minutes_fmt">%d min</string>
+    <string name="set_hours_fmt">%d h</string>
+    <string name="set_low_battery">Stop on low battery</string>
+    <string name="set_low_storage">Stop on low storage</string>
+    <string name="set_initial_delay">Initial delay</string>
+    <string name="set_sec_fmt">%d s</string>
+    <string name="set_ms_fmt">%d ms</string>
+    <string name="set_advanced">Advanced</string>
+    <string name="set_cam_init_delay">Camera init delay</string>
+    <string name="set_trigger_delay">Shutter trigger delay</string>
+    <string name="set_jpeg_quality">JPEG quality</string>
+    <string name="set_video_bitrate">Video bit rate</string>
+    <string name="set_bitrate_auto">Auto</string>
+    <string name="set_mbps_fmt">%d Mbps</string>
+    <string name="set_remote_section">Remote control</string>
+    <string name="set_rest">REST API</string>
+    <string name="set_rest_hint">HTTP server for LAN remote control</string>
+    <string name="set_port">HTTP server port</string>
+    <string name="set_connection">Connection info</string>
+    <string name="set_about_section">About</string>
+    <string name="set_version">Version</string>
+    <string name="set_github">Project page</string>
+    <string name="set_license">Open source license</string>
+    <string name="set_license_text">ChronoLapse is free software under GPL-3.0, based on Spartan TimeLapse Recorder by Andreas Rohner and TimeLapseCam by woheller69. Time-lapse capture, watermark, REST API and hardware encoding ports are derived from those projects.</string>
+
+    <!-- notifications -->
+    <string name="notif_preparing">Preparing recording</string>
+    <string name="notif_recording">Recording is running</string>
+    <string name="notif_waiting">Scheduled · starts %s</string>
+    <string name="notif_restapi">REST API running</string>
+    <string name="recording_error">Recording stopped: %s</string>
+</resources>

@@ -1,0 +1,20 @@
+*.iml
+.gradle/
+/local.properties
+.idea/
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+/patch*.py
+
+# signing secrets and build artifacts
+/keystore.properties
+/keystore/
+/releases/
+/ui_dump.xml
+/ui_mode.xml
+/keystore.properties
+/keystore/
+/releases/
