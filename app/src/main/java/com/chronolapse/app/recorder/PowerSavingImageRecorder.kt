@@ -11,10 +11,11 @@ import com.chronolapse.app.data.AppSettings
 import com.chronolapse.app.service.Receivers
 
 /**
- * Interval capture driven by system alarm clock wakeups: the camera and the
- * wake lock are released between shots so a long unattended session barely
- * drains the battery. One recorder instance lives for the whole session, so
- * all frames stay inside a single project.
+ * Interval capture driven by system alarm clock wakeups: the camera is
+ * released between shots while the session wake lock stays held, so a long
+ * unattended session survives aggressive battery saving. One recorder
+ * instance lives for the whole session, so all frames stay inside a single
+ * project.
  */
 class PowerSavingImageRecorder(
     settings: AppSettings,
@@ -49,9 +50,14 @@ class PowerSavingImageRecorder(
             alarmIntent
         )
 
-        // sleep until the next alarm fires
+        // free the camera between shots, but keep the wake lock of the
+        // foreground service held: with the CPU sleeping and no wake lock the
+        // process is an easy kill for aggressive battery saving, and the next
+        // alarm tick could not revive the session any more
         releaseCamera()
-        powerControl.releaseWake()
+        // the camera was unbound: the alarm tick has to run prepareRecord
+        // again before it can take the next picture
+        prepared = false
     }
 
     private fun cancelAlarm() {

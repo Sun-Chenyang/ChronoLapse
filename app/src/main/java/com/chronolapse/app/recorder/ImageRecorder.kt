@@ -45,9 +45,17 @@ open class ImageRecorder(
         if (settings.stopAfterMs > 0) System.currentTimeMillis() + settings.initialDelayMs + settings.stopAfterMs
         else 0L
 
-    private var prepared = false
+    protected var prepared = false
     protected var startPreviewTime = 0L
     private var captureWallTime = 0L
+
+    /**
+     * True while a takePicture request is pending. A power saving alarm tick
+     * arriving in that window is dropped: the running capture schedules the
+     * next one itself.
+     */
+    @Volatile
+    private var captureInFlight = false
 
     protected var imageCapture: ImageCapture? = null
     protected var camera: Camera? = null
@@ -60,6 +68,7 @@ open class ImageRecorder(
 
     /** external trigger, e.g. the power saving alarm tick */
     fun captureNow() {
+        if (captureInFlight) return
         handler.post { run() }
     }
 
@@ -107,6 +116,7 @@ open class ImageRecorder(
             return
         }
 
+        captureInFlight = true
         startPreviewTime = SystemClock.elapsedRealtime()
         try {
             if (!prepared) prepareRecord()
@@ -121,6 +131,7 @@ open class ImageRecorder(
 
     private val callback = object : ImageCapture.OnImageSavedCallback {
         override fun onImageSaved(results: ImageCapture.OutputFileResults) {
+            captureInFlight = false
             if (stopped) return
             RecStatus.onFrameCaptured()
 
@@ -141,6 +152,7 @@ open class ImageRecorder(
         }
 
         override fun onError(exception: ImageCaptureException) {
+            captureInFlight = false
             handleError(TAG, exception.message ?: "capture error")
         }
     }

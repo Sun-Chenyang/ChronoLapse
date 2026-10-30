@@ -1,5 +1,6 @@
 package com.chronolapse.app.service
 
+import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -57,6 +58,10 @@ class RecordingService : LifecycleService() {
     private var wakeLock: PowerManager.WakeLock? = null
     private var waitingForSchedule = false
 
+    /** set once the user stopped this service instance: late ticks of the
+     * stopped session must not silently restart a capture */
+    private var stoppedOnce = false
+
     /** stops the session on low battery / low storage while it runs */
     private val deviceStatusReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -102,8 +107,24 @@ class RecordingService : LifecycleService() {
             }
             ACTION_CAPTURE -> {
                 // power saving tick: wake up, grab the single frame, sleep again
-                acquireWake()
-                (recorder as? com.chronolapse.app.recorder.ImageRecorder)?.captureNow()
+                val rec = recorder as? com.chronolapse.app.recorder.ImageRecorder
+                when {
+                    rec != null -> {
+                        acquireWake()
+                        rec.captureNow()
+                    }
+                    stoppedOnce -> {
+                        // stale tick of a session the user just stopped
+                    }
+                    else -> {
+                        // the process had been killed between two frames and
+                        // the alarm cold started us: recover the session (and
+                        // satisfy the startForeground obligation of a
+                        // startForegroundService wake-up)
+                        initNotification()
+                        startRecording()
+                    }
+                }
                 return START_STICKY
             }
             else -> {
@@ -136,6 +157,7 @@ class RecordingService : LifecycleService() {
     }
 
     private fun beginCapture(s: AppSettings) {
+        cancelStalePowerSavingAlarm()
         acquireWake()
         RecStatus.beginCapture(
             captureRateMs = s.intervalMs,
@@ -178,6 +200,7 @@ class RecordingService : LifecycleService() {
         unregisterDeviceStatus()
         recorder?.stop()
         recorder = null
+        stoppedOnce = true
         releaseWake()
         handlerThread?.quitSafely()
         handlerThread = null
@@ -206,6 +229,22 @@ class RecordingService : LifecycleService() {
             val pm = getSystemService(POWER_SERVICE) as PowerManager
             wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ChronoLapse:recording")
             wakeLock?.acquire()
+        }
+    }
+
+    /**
+     * A previous session killed together with its process may have left a
+     * power saving alarm armed: it would cold start ghost sessions next to
+     * the new one
+     */
+    private fun cancelStalePowerSavingAlarm() {
+        val pi = PendingIntent.getBroadcast(
+            this, 0,
+            Intent(this, Receivers.PowerSavingReceiver::class.java),
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE
+        )
+        if (pi != null) {
+            (getSystemService(ALARM_SERVICE) as AlarmManager).cancel(pi)
         }
     }
 
